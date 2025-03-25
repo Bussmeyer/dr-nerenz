@@ -1,0 +1,33 @@
+# Hugo
+public/
+resources/
+hugo_stats.json
+
+# Node.js dependencies (if you use npm/yarn)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Log files
+*.log
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Netlify
+.netlify/
+
+# Vercel
+.vercel/
+
+# Local Hugo server state
+hugo_server.pid
+
+# Temporary files and directories
+tmp/
+temp/
+*.tmp
+*.temp

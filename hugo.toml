@@ -1,0 +1,7 @@
+baseURL = 'https://www.dr-nerenz.de/'
+languageCode = 'de-DE'
+title = 'Dr. Heike Nerenz'
+enableEmoji = true
+disableHugoGeneratorInject = true
+disableKinds = ["rss", "taxonomy", "term"]
+enableRobotsTXT = true

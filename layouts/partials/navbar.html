@@ -1,0 +1,110 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- define "partials/inline/menu/navbar.html" }}
+{{/* URL of the current page */}}
+{{- $page := .page }}
+
+{{/* Iterate over menu items */}}
+{{- range .menuEntries }}
+
+{{/* Create link tag attributes */}}
+{{- $attrs := dict "href" .URL "class" "nav-link dropdown-toggle"}}
+{{- if $page.IsMenuCurrent .Menu . }}
+{{- $attrs = merge $attrs (dict "class" "nav-link dropdown-toggle active" "aria-current" "page") }}
+{{- else if $page.HasMenuCurrent .Menu .}}
+{{- $attrs = merge $attrs (dict "class" "nav-link dropdown-toggle ancestor" "aria-current" "true") }}
+{{- end }}
+
+{{/* Process and assign link text value */}}
+{{- $name := .Name }}
+{{- with .Identifier }}
+{{- with T . }}
+{{- $name = . }}
+{{- end }}
+{{- end }}
+
+<li class="nav-item dropdown">
+  {{/* Add processed attributes to link tag */}}
+  <a {{- range $k, $v :=$attrs }} {{- with $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end -}}
+    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $name }}</a>
+
+  {{- with .Children }}
+  <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
+    <div class="list-group list-group-flush">
+      <!-- List -->
+      {{ range . }}
+      <a class="list-group-item" href="{{ .PageRef}}">
+
+        <!-- Content -->
+        <div class="ms-4">
+
+          <!-- Heading -->
+          <span class="h6 fw-bold text-uppercase text-gray-700 mb-0">
+            {{ .Name }}
+          </span>
+
+          <!-- Text -->
+          <p class="fs-sm text-primary mb-0">
+            {{ .Post }}
+          </p>
+
+        </div>
+
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{- end }}
+
+</li>
+{{- end }}
+{{- end }}
+
+
+<nav class="navbar navbar-expand-lg {{.classList}}">
+  <div class="{{.container}}">
+
+    <a class="navbar-brand" style="font-size: 100%;" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    {{- if .page.Site.Params.showMainMenu }}
+    {{/*  TODO if rausnehmen  */}}
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fe fe-x"></i>
+      </button>
+
+      <!-- Navigation -->
+      {{- with index site.Menus $menuID }}
+      <ul class="navbar-nav ms-auto">
+
+        {{- partial "inline/menu/navbar.html" (dict "page" $page "menuEntries" .) }}
+
+      </ul>
+      {{- end }}
+
+      <button class="btn btn-primary lift m-5 m-lg-0" data-bs-toggle="modal" data-bs-target="#modalContact">
+        Termine
+      </button>
+    </div>
+    {{- end }}
+  </div>
+</nav>

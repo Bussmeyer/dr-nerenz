@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+{{ partialCached "head/csp.html" . }}
+
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="X-Content-Type-Options" content="'nosniff' always">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="{{ site.Title }}">
+<meta property="og:description" content="{{ site.Params.claim }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.og_image | default "/" }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+
+
+{{- with resources.Get "favicon/favicon.ico" }}
+  <link rel="icon" href="{{ .RelPermalink }}" type="image/x-icon">
+{{- end }}
+
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
+{{ if fileExists "layouts/partials/head/jsonld.html" }}
+  {{ partial "head/jsonld.html" . }}
+{{ end }}
+
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>

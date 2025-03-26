@@ -5,3 +5,63 @@ enableEmoji = true
 disableHugoGeneratorInject = true
 disableKinds = ["rss", "taxonomy", "term"]
 enableRobotsTXT = true
+
+[params]
+showMainMenu = true
+claim = 'CLAIM'
+[params.contact]
+  phone = 'fon'
+  phone_human = 'fon_human'
+  fax_human = 'fax'
+  mail = 'mail addy'
+  street = 'street'
+  city = 'code city'
+  google_business = 'google_business'
+
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepQuotes = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+
+[menus]
+# Leistungen
+  [[menus.main]]
+    name = 'Leistungen'
+    pageRef = '/leistungen'
+    weight = 20
+  [[menus.main]]
+    name = 'Kardiologie'
+    post = 'Herzgesundheit erhalten'
+    pageRef = '/leistungen/kardiologie/'
+    parent = 'Leistungen'
+    weight = 2
+  [[menus.main]]
+    name = 'Pneumologie'
+    post = 'Gut durchatmen'
+    pageRef = '/leistungen/pneumologie'
+    parent = 'Leistungen'
+    weight = 3
+  [[menus.main]]
+    name = 'Allergologie'
+    post = 'Testen und Behandeln'
+    pageRef = '/leistungen/allergologie'
+    parent = 'Leistungen'
+    weight = 4
+
+# Kontakt
+  [[menus.main]]
+    name = 'Kontakt'
+    pageRef = '/kontakt'
+    weight = 30
+
+# Footer
+  [[menus.footer]]
+    name = 'Impressum & Datenschutz'
+    pageRef = '/datenschutz-impressum'
+    weight = 20

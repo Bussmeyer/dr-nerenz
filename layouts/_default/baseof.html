@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
-  head
+  {{ partial "head.html" . }}
 </head>
 <body>
-  
+  {{ partial "navbar.html" (dict "menuID" "main" "page" . "classList" "navbar-dark" "container" "container-fluid" "button" "primary") }}
+
   <main>
     {{ block "main" . }}{{ end }}
   </main>
   <footer>
-    footer
+    {{ partial "footer.html" (dict "menuID" "footer" "page" . "classList" "bg-gray-200") }}
   </footer>
 </body>
 </html>

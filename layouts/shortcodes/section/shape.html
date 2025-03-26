@@ -1,0 +1,9 @@
+<!-- 
+{{/* 
+Usage:
+
+{{< section/shape "curves/curve-1" "text-white" "mt-n10" >}}
+    
+*/}}
+-->
+{{ partial "section/shape" (dict "shape" (.Get 0) "color" (.Get 1) "position" (.Get 2) ) }}

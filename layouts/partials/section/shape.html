@@ -1,0 +1,10 @@
+{{- $shapePath := printf "shapes/%s.svg" (.shape) -}}
+{{- $colorClass := (.color) -}}
+{{- $positonClass := (.position) -}}
+
+<!-- SHAPE -->
+<div class="position-relative{{ if $positonClass }} {{ $positonClass }}{{ end }}">
+    <div class="shape shape-bottom shape-fluid-x {{ $colorClass }}">
+        {{ partial ($shapePath) }}
+    </div>
+</div>

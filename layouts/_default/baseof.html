@@ -4,7 +4,7 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  {{ partial "navbar.html" (dict "menuID" "main" "page" . "classList" "navbar-dark" "container" "container-fluid" "button" "primary") }}
+  {{ partial "navbar.html" (dict "menuID" "main" "page" . "classList" "" "container" "container" "button" "primary") }}
 
   <main>
     {{ block "main" . }}{{ end }}

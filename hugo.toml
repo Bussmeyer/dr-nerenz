@@ -36,15 +36,15 @@ claim = 'CLAIM'
     pageRef = '/leistungen'
     weight = 20
   [[menus.main]]
-    name = 'Kardiologie'
-    post = 'Herzgesundheit erhalten'
-    pageRef = '/leistungen/kardiologie/'
+    name = 'Botulinumtoxin'
+    post = 'Behandlung der Mimikfalten'
+    pageRef = '/leistungen/botulinumtoxin/'
     parent = 'Leistungen'
     weight = 2
   [[menus.main]]
-    name = 'Pneumologie'
-    post = 'Gut durchatmen'
-    pageRef = '/leistungen/pneumologie'
+    name = 'Hyperhidrose'
+    post = ''
+    pageRef = '/leistungen/hyperhidrose'
     parent = 'Leistungen'
     weight = 3
   [[menus.main]]

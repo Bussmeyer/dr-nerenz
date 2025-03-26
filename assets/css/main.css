@@ -1,0 +1,34 @@
+:root {
+    --bs-primary: #171717;
+    --bs-primary-rgb: rgb(23, 23, 23);
+    --bs-light-rgb: rgb(247 243 232);
+    --bs-link-color: #13110e;
+    --bs-heading-color: var(--bs-link-color);
+    --bs-dark-rgb: rgb(180 180 163);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-hover-bg: #737d72;
+    --bs-btn-active-bg: var(--bs-primary);
+}
+
+.navbar {
+    --bs-navbar-color: var(--bs-link-color);
+}
+
+.bg-light {
+    background-color: var(--bs-light-rgb) !important;
+}
+
+.bg-dark {
+    background-color: var(--bs-dark-rgb) !important;
+}
+
+.text-light {
+    color: var(--bs-light-rgb) !important;
+}
+
+.text-dark {
+    color: var(--bs-dark-rgb) !important;
+}

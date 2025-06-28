@@ -54,10 +54,10 @@ claim = 'CLAIM'
     parent = 'Leistungen'
     weight = 4
 
-# Kontakt
+# Über mich
   [[menus.main]]
-    name = 'Kontakt'
-    pageRef = '/kontakt'
+    name = 'Über mich'
+    pageRef = '/ueber-mich'
     weight = 30
 
 # Footer

@@ -1,34 +1,123 @@
 :root {
-    --bs-primary: #171717;
-    --bs-primary-rgb: rgb(23, 23, 23);
-    --bs-light-rgb: rgb(247 243 232);
-    --bs-link-color: #13110e;
-    --bs-heading-color: var(--bs-link-color);
-    --bs-dark-rgb: rgb(180 180 163);
+    /* Brand Colors - WCAG AA Compliant */
+    --blanc: #f5f1e8;
+    --orange-vif: #b8421f;
+    --ombre-naturelle: #2d2a26;
+    --terre-sienne-claire: #c49970;
+    
+    /* Accessibility Colors */
+    --text-high-contrast: #1a1a1a;
+    --text-medium-contrast: #3d3d3d;
+    --background-light: #fefcfa;
+    --background-medium: #f5f1e8;
+    
+    /* Bootstrap Overrides */
+    --bs-primary: var(--text-high-contrast);
+    --bs-primary-rgb: 26, 26, 26;
+    --bs-light-rgb: 254, 252, 250;
+    --bs-dark-rgb: 45, 42, 38;
+    
+    /* Semantic Colors */
+    --bs-body-color: var(--text-medium-contrast);
+    --bs-link-color: var(--orange-vif);
+    --bs-heading-color: var(--text-high-contrast);
 }
 
+/* Component Overrides - Accessibility Focused */
 .btn-primary {
-    --bs-btn-bg: var(--bs-primary);
-    --bs-btn-hover-bg: #737d72;
-    --bs-btn-active-bg: var(--bs-primary);
+    --bs-btn-bg: var(--text-high-contrast);
+    --bs-btn-color: var(--background-light);
+    --bs-btn-hover-bg: var(--orange-vif);
+    --bs-btn-hover-color: var(--background-light);
+    --bs-btn-active-bg: var(--text-high-contrast);
+    --bs-btn-border-color: var(--text-high-contrast);
+    --bs-btn-hover-border-color: var(--orange-vif);
 }
 
 .navbar {
-    --bs-navbar-color: var(--bs-link-color);
+    --bs-navbar-color: var(--text-medium-contrast);
 }
 
+/* Link Accessibility */
+a {
+    color: var(--orange-vif);
+    text-decoration: underline;
+}
+
+a:hover, a:focus {
+    color: var(--text-high-contrast);
+    text-decoration: underline;
+}
+
+/* Focus States for Accessibility */
+button:focus, 
+a:focus, 
+input:focus, 
+textarea:focus, 
+select:focus {
+    outline: 2px solid var(--orange-vif);
+    outline-offset: 2px;
+}
+
+/* Color Utilities - High Contrast */
 .bg-light {
-    background-color: var(--bs-light-rgb) !important;
-}
-
-.bg-dark {
-    background-color: var(--bs-dark-rgb) !important;
+    background-color: var(--background-light) !important;
 }
 
 .text-light {
-    color: var(--bs-light-rgb) !important;
+    color: var(--background-light) !important;
+}
+
+.bg-dark {
+    background-color: var(--ombre-naturelle) !important;
 }
 
 .text-dark {
-    color: var(--bs-dark-rgb) !important;
+    color: var(--text-high-contrast) !important;
+}
+
+/* High Contrast Text on Dark Backgrounds */
+.bg-dark * {
+    color: var(--background-light) !important;
+}
+
+.bg-dark h1, 
+.bg-dark h2, 
+.bg-dark h3, 
+.bg-dark h4, 
+.bg-dark h5, 
+.bg-dark h6 {
+    color: var(--background-light) !important;
+}
+
+/* Typography - Accessibility Enhanced */
+.display-1 {
+    font-weight: 400;
+    color: var(--text-high-contrast);
+}
+
+/* Ensure sufficient color contrast for all text elements */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-high-contrast);
+}
+
+p, span, div {
+    color: var(--text-medium-contrast);
+}
+
+/* Color-blind friendly indicators */
+.text-success {
+    color: #0f7b0f !important;
+}
+
+.text-warning {
+    color: #8b4513 !important;
+}
+
+.text-danger {
+    color: #c41e3a !important;
+}
+
+.text-info {
+    color: #1e5a96 !important;
 }
